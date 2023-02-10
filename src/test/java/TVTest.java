@@ -1,13 +1,22 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TVTest {
 
+    private TV tv;
+
+    @BeforeEach
+    void setUp() {
+        tv = new TV();  //tv not on
+    }
+
     @Test
     void toggleOnOff() {
-        TV tv = new TV();  //tv not on
-        assertFalse(tv.isOn());
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
 
         tv.toggleOnOff();  //tv on
         assertTrue(tv.isOn());
@@ -22,8 +31,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeUpTvNotOn() {
-        TV tv = new TV();
-        assertFalse(tv.isOn());
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         assertEquals(TV.MIN_VOLUME, tv.getVolume());
 
         //volume shouldn't increase if tv is not on
@@ -38,7 +49,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeUpTvOn() {
-        TV tv = new TV();
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         //turn tv on
         tv.toggleOnOff();
         assertTrue(tv.isOn());
@@ -67,7 +81,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeUpMaxThreshold() {
-        TV tv = new TV();
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         //turn tv on
         tv.toggleOnOff();
         assertTrue(tv.isOn());
@@ -89,8 +106,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeDownTvNotOn() {
-        TV tv = new TV();
-        assertFalse(tv.isOn());
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         assertEquals(TV.MIN_VOLUME, tv.getVolume());
 
         //volume shouldn't decrease if tv is off
@@ -104,7 +123,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeDownTvOn() {
-        TV tv = new TV();
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         //turn tv on
         tv.toggleOnOff();
         assertTrue(tv.isOn());
@@ -129,7 +151,10 @@ class TVTest {
     @Disabled
     @Test
     void volumeDownMinThreshold() {
-        TV tv = new TV();
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         //turn tv on
         tv.toggleOnOff();
         assertTrue(tv.isOn());
@@ -142,12 +167,13 @@ class TVTest {
 
     }
 
-
     @Disabled
     @Test
     void setChannelTVNotOn() {
-        TV tv = new TV();
-        assertFalse(tv.isOn());
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         assertEquals(TV.MIN_CHANNEL, tv.getChannel());
 
         //channel shouldn't change if tv is not on
@@ -162,8 +188,10 @@ class TVTest {
     @Disabled
     @Test
     void setChannelTVOn() {
-        TV tv = new TV();
-        assertFalse(tv.isOn());
+        // tv was instantiated in setUp method
+
+        assertFalse(tv.isOn()); //tv not on
+
         assertEquals(TV.MIN_CHANNEL, tv.getChannel());
 
         tv.toggleOnOff();
@@ -186,6 +214,43 @@ class TVTest {
         //below min, don't change channel
         tv.setChannel(TV.MIN_CHANNEL-1);
         assertEquals(TV.MIN_CHANNEL, tv.getChannel());
+
+    }
+
+    @Disabled
+    @Test
+    void multipleTVsDifferentState() {
+        TV sony = new TV();
+        TV vizio = new TV();
+
+        assertFalse(sony.isOn()); //not on
+        assertFalse(vizio.isOn()); //not on
+
+        // Add the appropriate code for each comment below
+
+        // Turn the sony on
+
+        // Assert that sony is on
+
+        // Set sony channel to 50
+
+        // Assert the sony channel is 50
+
+        // Turn sony volume up
+
+        // Turn sony volume up again
+
+        // Assert sony volume is 2
+
+        // Turn vizio volume up  (don't turn it on, so volume should not change)
+
+        // Set vizio channel to 40 (don't turn it on, so channel should not change)
+
+        // Assert vizio is not on
+
+        // Assert vizio channel is minimum value
+
+        // Assert vizio volume is minimum value
 
     }
 }

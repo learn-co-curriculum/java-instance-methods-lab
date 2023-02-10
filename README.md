@@ -1,12 +1,8 @@
-# Instance Methods Lab
+# Methods Lab
 
 ## Learning Goals
 
 - Implement instance methods that change object state
-
-## Setup
-
-Fork and clone this lesson to get the starter code.
 
 ## Introduction
 
@@ -55,9 +51,9 @@ The instance variables store the state of each `TV` object:
 
 - `on` : a value of `true` indicates the tv is turned on, while `false` indicates tv is turned off.
 - `volume` : initialized to MIN_VOLUME and should range between `MIN_VOLUME` and `MAX_VOLUME`, inclusive.
-  The tv must be on to change the volume.
+   The tv must be on to change the volume.
 - `channel` : initialized to MIN_CHANNEL and should range between `MIN_CHANNEL` and `MAX_CHANNEL`, inclusive.
-  The tv must be on to change the channel.
+   The tv must be on to change the channel.
 
 ## Task Instructions
 
@@ -66,16 +62,38 @@ The instance variables store the state of each `TV` object:
 - Do not modify the `TV` method signatures.
 - Do not modify the `TVTest` methods, except to remove the `@Disabled` annotation.
 
+Note: Screen prints for tasks 1-4 are missing the Junit test `multipleTVsDifferentState`,
+which will be implemented in task5.
+
 ## Task #1 - Turn the TV on and off
 
-The Junit `TVTest` methods are all disabled using `@Disabled` except for the first
-test `toggleOnOff()`, which fails if you run it.
+The `setUp` method in class `TVTest` creates an instance of `TV`
+that will be used to test the `TV` instance methods.
+
+```java
+class TVTest {
+    
+    private TV tv;
+
+    @BeforeEach
+    void setUp() {
+        tv = new TV();  //tv not on
+    }
+
+    //Test methods
+    ...
+}
+```
+
+The test methods in class `TVTest` are all disabled using `@Disabled` except for the first
+method `toggleOnOff()`, which fails if you run it.
+
 
 ![task1 fail](https://curriculum-content.s3.amazonaws.com/6676/java-methods/task1_fail.png)
 
 Edit the `toggleOnOff()` method in the `TV` class:
 - The method should toggle the value stored in the `on`
-  instance variable between `true` and `false`.
+  instance variable between `true` and `false`.  
 - Can you do this without an if-else statement?  (HINT: use a logical operator)
 
 
@@ -89,7 +107,7 @@ Edit the `volumeUp()` method in the `TV` class to increase the volume by 1.
 The following two conditions must be true to increase the volume.
 Do not change the volume if either condition is false.
 
-- The tv must be on.
+- The tv must be on.  
 - The current volume must be less than MAX_VOLUME.
 
 Remove `@Disabled` from the following Junit tests:
@@ -127,7 +145,7 @@ Run the tests to confirm your implementation:
 
 Edit the `setChannel(int channel)` method in the `TV` class to assign
 the instance variable named `channel` to the value passed as a parameter
-variable named `channel`.
+variable named `channel`.  
 
 The following two conditions must be true to set the channel.
 Do not set the channel if either condition is false.
@@ -150,3 +168,19 @@ Run the tests to confirm your implementation:
 ![task4](https://curriculum-content.s3.amazonaws.com/6676/java-methods/task4.png)
 
 
+## Task #5 - Complete the Junit test method named `multipleTVsDifferentState`
+
+Now you are going to get some practice implementing Junit test methods.
+
+Remove `@Disabled` from the following Junit tests:
+
+- multipleTVsDifferentState
+
+Although the method passes if you run the test, you will need to implement
+the code for each comment to pass the tests when you submit this assignment.
+
+Add the appropriate method call and/or assertion below each comment.
+The method is testing two `Tv` objects referenced by variables `sony`
+and `vizio`, so take care to use the correct variable.
+
+![task5](https://curriculum-content.s3.amazonaws.com/6676/java-methods/task5.png)
