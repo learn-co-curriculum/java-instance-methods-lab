@@ -172,7 +172,7 @@ Run the tests to confirm your implementation:
 
 Now you are going to get some practice implementing Junit test methods.
 
-Remove `@Disabled` from the following Junit tests:
+Remove `@Disabled` from the following Junit test:
 
 - multipleTVsDifferentState
 
@@ -180,7 +180,7 @@ Although the method passes if you run the test, you will need to implement
 the code for each comment to pass the tests when you submit this assignment.
 
 Add the appropriate method call and/or assertion below each comment.
-The method is testing two `Tv` objects referenced by variables `sony`
+The method is testing two `TV` objects referenced by variables `sony`
 and `vizio`, so take care to use the correct variable.
 
 ![task5](https://curriculum-content.s3.amazonaws.com/6676/java-methods/task5.png)
